@@ -1,0 +1,14 @@
+{
+  "name": "toastagents",
+  "version": "1.0.0",
+  "description": "ToastAgents - AI builder meetup format with queryable content database",
+  "type": "module",
+  "scripts": {
+    "query": "bun run scripts/query.ts",
+    "agenda": "bun run scripts/generate-agenda.ts",
+    "luma": "bun run scripts/luma.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

@@ -8,7 +8,7 @@ A meetup format for AI-native developers who build fast but struggle to present,
 
 ## Origin
 
-ToastAgents was created by [Kuan](https://x.com/pky_kuan) in Singapore, April 2026.
+ToastAgents was created by [Kuan](https://x.com/phuakuanyu) in Singapore, April 2026.
 
 The insight: Claude Code Anonymous nailed the vibe (builders talking candidly about AI workflows) but lacked structure. Toastmasters nails the structure (timed talks, feedback, roles) but doesn't speak to builders. Neither format alone solves the real problem.
 
@@ -108,9 +108,87 @@ Humans just show up, talk, listen, and enjoy. The agents handle the facilitation
 
 | City | Organizer | Cadence | Started |
 |------|-----------|---------|---------|
-| Singapore | [@pky_kuan](https://x.com/pky_kuan) | TBD | April 2026 |
+| Singapore | [@phuakuanyu](https://x.com/phuakuanyu) | TBD | April 2026 |
 
 *Want to start a chapter? Open a PR or reach out.*
+
+---
+
+## Content Database
+
+The `database/` folder contains JSON files that power the event planning:
+
+| File | What | Count |
+|------|------|-------|
+| `openings.json` | Opening formats (Term of Day, Quote, Demo, Theme, Poll) | 5 types |
+| `talk-types.json` | Lightning talk archetypes (Icebreaker, Workflow, Horror Story, etc.) | 9 types |
+| `table-topics.json` | Hot seat questions across 9 categories | 102 questions |
+
+### Query CLI
+
+```bash
+# Stats
+bun run query stats
+
+# Random table topics
+bun run query topics --category debates --count 5
+bun run query topics --difficulty easy --format completion
+
+# Browse talk types
+bun run query talks --difficulty beginner
+
+# All opening formats
+bun run query openings
+
+# Generate a random full event agenda
+bun run agenda
+bun run agenda --theme "Speed Runs" --speakers 5 --topics 8
+```
+
+### Categories
+
+**Table Topics:** workflows, wins-and-failures, hot-takes, show-and-tell, hypotheticals, debates, completions, word-prompts, rapid-fire, audience-challenge
+
+**Talk Types:** icebreaker, workflow-walkthrough, horror-story, before-after, tool-review, live-build, setup-tour, discovery, challenge-accepted
+
+**Openings:** term-of-the-day, quote-of-the-day, demo-of-the-day, theme-setter, icebreaker-poll
+
+---
+
+## Event Lifecycle
+
+Every event follows: **Plan > Run > Recap > Retro > Plan Next**
+
+```
+events/YYYY-MM-DD-city/
+  plan.json       # Pre-event: theme, speakers, selected content
+  recap.md        # Post-event: what happened
+  feedback.json   # Attendee feedback
+  retro.md        # What worked, what to change
+```
+
+Templates in `templates/`. Copy them to start a new event folder.
+
+---
+
+## Luma Integration
+
+Manage events via Luma API (requires Luma Plus):
+
+```bash
+# Set up
+cp .env.example .env  # Add your LUMA_API_KEY
+
+# Create event
+bun run luma create-event --name "ToastAgents SG #1" --date 2026-05-15T19:00:00
+
+# Manage guests
+bun run luma list-events
+bun run luma list-guests --event-id <id>
+bun run luma invite --event-id <id> --emails "a@b.com,c@d.com"
+```
+
+**Note:** Message blasting and feedback collection are Luma UI-only features, not available via API.
 
 ---
 

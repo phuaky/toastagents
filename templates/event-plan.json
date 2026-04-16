@@ -1,0 +1,38 @@
+{
+  "event": {
+    "date": "",
+    "city": "",
+    "venue": "",
+    "organizer": "",
+    "luma_event_id": "",
+    "expected_attendees": 0
+  },
+  "opening": {
+    "type": "",
+    "content": "",
+    "host": ""
+  },
+  "lightning_talks": [
+    {
+      "speaker": "",
+      "talk_type": "",
+      "title": "",
+      "opening_line": "I was ___ when Claude Code ___",
+      "has_demo": false,
+      "order": 1
+    }
+  ],
+  "table_topics": {
+    "question_ids": [],
+    "backup_question_ids": [],
+    "theme_aligned": true
+  },
+  "theme": "",
+  "agent_config": {
+    "timer_enabled": true,
+    "feedback_enabled": true,
+    "hot_seat_enabled": true,
+    "recap_enabled": true
+  },
+  "notes": ""
+}

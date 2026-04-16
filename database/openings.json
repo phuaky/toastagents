@@ -1,0 +1,100 @@
+[
+  {
+    "id": "term-of-the-day",
+    "type": "term-of-the-day",
+    "title": "Term of the Day",
+    "description": "Host introduces an AI/dev jargon term. Speakers are encouraged to use it naturally during their talks. Fun way to spread vocabulary.",
+    "examples": [
+      { "term": "Vibe Coding", "definition": "Writing code primarily through natural language prompts, letting the AI handle implementation details." },
+      { "term": "Context Window", "definition": "The amount of text an LLM can process at once. Bigger window = more code it can see." },
+      { "term": "Agentic", "definition": "Software that acts autonomously, making decisions and taking actions without step-by-step human guidance." },
+      { "term": "MCP", "definition": "Model Context Protocol. A standard for connecting AI models to external tools and data sources." },
+      { "term": "Prompt Injection", "definition": "When untrusted input tricks an LLM into ignoring its instructions and doing something else." },
+      { "term": "RAG", "definition": "Retrieval-Augmented Generation. Feeding an LLM relevant documents before asking it a question." },
+      { "term": "Hallucination", "definition": "When an LLM confidently generates something that's factually wrong or made up." },
+      { "term": "Fine-tuning", "definition": "Training a base model on your own data to specialize it for specific tasks." },
+      { "term": "Token", "definition": "The basic unit LLMs process. Roughly 3/4 of a word. Your bill is measured in these." },
+      { "term": "System Prompt", "definition": "Hidden instructions that shape how an AI assistant behaves before the user says anything." },
+      { "term": "CLAUDE.md", "definition": "A project-level instruction file that Claude Code reads automatically to understand your codebase conventions." },
+      { "term": "Harness", "definition": "The full setup around Claude Code: hooks, skills, MCP servers, and custom instructions that make it yours." },
+      { "term": "Worktree", "definition": "An isolated copy of your git repo that lets an agent work on a branch without touching your main checkout." },
+      { "term": "Tool Use", "definition": "When an LLM calls external functions (search, code execution, APIs) instead of just generating text." },
+      { "term": "Anthropic Artifacts", "definition": "Self-contained content blocks (code, docs, diagrams) that Claude generates in a separate panel." }
+    ],
+    "difficulty": "easy",
+    "duration_min": 2
+  },
+  {
+    "id": "quote-of-the-day",
+    "type": "quote-of-the-day",
+    "title": "Quote of the Day",
+    "description": "Host shares a quote from a builder, founder, or AI researcher. Brief reflection on what it means for the room.",
+    "examples": [
+      { "quote": "The best way to predict the future is to build it.", "author": "Alan Kay" },
+      { "quote": "We're not replacing developers. We're giving every developer superpowers.", "author": "Dario Amodei" },
+      { "quote": "The hottest new programming language is English.", "author": "Andrej Karpathy" },
+      { "quote": "AI won't replace you. A person using AI will.", "author": "Unknown" },
+      { "quote": "Software is eating the world. AI is eating software.", "author": "Jensen Huang" },
+      { "quote": "The best code is no code at all.", "author": "Jeff Atwood" },
+      { "quote": "Ship it and iterate. Perfect is the enemy of done.", "author": "Reid Hoffman" },
+      { "quote": "I'm not a great programmer. I'm a good programmer with great tools.", "author": "Adapted from Brian Kernighan" },
+      { "quote": "Move fast and break things. Unless you're using AI, then move fast and let it fix things.", "author": "Builder proverb" },
+      { "quote": "The future is already here. It's just not evenly distributed.", "author": "William Gibson" }
+    ],
+    "difficulty": "easy",
+    "duration_min": 2
+  },
+  {
+    "id": "demo-of-the-day",
+    "type": "demo-of-the-day",
+    "title": "Demo of the Day",
+    "description": "Random audience member gets 60 seconds to show something on their laptop. No prep. Just pull up your terminal or browser and show what you've been working on.",
+    "examples": [
+      "Show your Claude Code CLAUDE.md file",
+      "Show the last thing you shipped this week",
+      "Show your most-used MCP server",
+      "Show your terminal setup",
+      "Show the weirdest thing in your git history"
+    ],
+    "difficulty": "medium",
+    "duration_min": 2
+  },
+  {
+    "id": "theme-setter",
+    "type": "theme-setter",
+    "title": "Theme Setter",
+    "description": "Host announces the theme of the night and gives a 1-2 minute framing. All lightning talks and table topics loosely connect to the theme.",
+    "examples": [
+      { "theme": "Workflows That Saved You Hours", "framing": "Tonight we're talking about the automations, scripts, and AI setups that gave you time back. Not the flashy stuff - the boring stuff that quietly changed your day." },
+      { "theme": "The Worst Thing Claude Ever Did", "framing": "We've all been there. The deleted file. The wrong API call. The commit that broke prod. Tonight, we share our war stories." },
+      { "theme": "Before and After", "framing": "How did you build software a year ago vs today? What changed? What stayed the same? Let's compare notes." },
+      { "theme": "The Setup", "framing": "CLAUDE.md files, MCP servers, hooks, skills. Tonight is about the harness - how you've configured your AI to work the way you think." },
+      { "theme": "Shipping Solo", "framing": "One person, AI tools, production users. How are solo builders using AI to punch above their weight?" },
+      { "theme": "Things I Can't Believe Work", "framing": "The prompts that shouldn't work but do. The workflows that feel like cheating. The moments where you thought, wait, that actually worked?" },
+      { "theme": "Teaching AI Your Craft", "framing": "Custom instructions, few-shot examples, CLAUDE.md files. How do you teach an AI to think like you?" },
+      { "theme": "Speed Runs", "framing": "How fast can you go? Tonight we talk about building things in hours that used to take weeks." },
+      { "theme": "The Debugging Session", "framing": "AI-assisted debugging. When it's magical, when it's maddening, and what you've learned." },
+      { "theme": "Open Source + AI", "framing": "Contributing to open source with AI. Reading unfamiliar codebases. Understanding someone else's architecture in minutes." }
+    ],
+    "difficulty": "easy",
+    "duration_min": 3
+  },
+  {
+    "id": "icebreaker-poll",
+    "type": "icebreaker-poll",
+    "title": "Icebreaker Poll",
+    "description": "Host asks a quick show-of-hands or live poll question to get the room engaged. Low-stakes, fun, reveals the crowd's composition.",
+    "examples": [
+      "Raise your hand if Claude Code has ever deleted a file you needed.",
+      "Who here has spent more than $100 on API calls in one month?",
+      "Show of hands: who has a CLAUDE.md file longer than 100 lines?",
+      "Who has shipped something to production that was mostly AI-written?",
+      "Who here has tried to explain vibe coding to a non-technical person and failed?",
+      "Raise your hand if you've rage-quit an AI tool and come back the next day.",
+      "Who has more MCP servers than human friends? Just kidding. But seriously.",
+      "Show of hands: Cursor, Claude Code, Copilot, or something else?"
+    ],
+    "difficulty": "easy",
+    "duration_min": 2
+  }
+]

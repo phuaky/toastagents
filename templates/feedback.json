@@ -1,0 +1,16 @@
+{
+  "event_date": "",
+  "event_city": "",
+  "responses": [
+    {
+      "attendee": "",
+      "overall_rating": 0,
+      "best_talk": "",
+      "best_table_topic_moment": "",
+      "would_attend_again": true,
+      "would_speak_next_time": false,
+      "suggestions": "",
+      "submitted_at": ""
+    }
+  ]
+}

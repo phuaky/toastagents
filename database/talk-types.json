@@ -1,0 +1,141 @@
+[
+  {
+    "id": "icebreaker",
+    "type": "icebreaker",
+    "title": "The Icebreaker",
+    "description": "Your first talk. Introduce yourself and your AI journey. How did you get here? What tools changed things for you? What are you building now?",
+    "prompt_template": "I was [emotion] when Claude Code [thing that happened]. My name is [name] and I [what you do]. Here's how AI changed my workflow...",
+    "tips": [
+      "Keep it personal. This isn't a tech talk, it's a story.",
+      "One specific moment is better than a timeline of your whole career.",
+      "End with what you're building now or what you're excited about."
+    ],
+    "difficulty": "beginner",
+    "prep_needed": "minimal",
+    "duration_min": 5
+  },
+  {
+    "id": "workflow-walkthrough",
+    "type": "workflow-walkthrough",
+    "title": "The Workflow Walkthrough",
+    "description": "Walk the room through how you actually build something. From idea to shipped. Show the real process, not the polished version.",
+    "prompt_template": "I was [emotion] when Claude Code [thing that happened]. Let me show you how I [specific workflow]...",
+    "tips": [
+      "Pick ONE workflow, not your entire setup.",
+      "Show the messy parts. The retries, the wrong turns.",
+      "If you demo, have a backup plan if tech fails. The story is what matters.",
+      "End with the outcome - what shipped, what improved, what you learned."
+    ],
+    "difficulty": "intermediate",
+    "prep_needed": "moderate",
+    "duration_min": 5
+  },
+  {
+    "id": "horror-story",
+    "type": "horror-story",
+    "title": "The Horror Story",
+    "description": "Tell us about the time AI went wrong. The deleted database. The wrong API call. The PR that broke prod. Bonus points if you show how you recovered.",
+    "prompt_template": "I was [emotion] when Claude Code [catastrophic thing]. Here's what happened and what I learned...",
+    "tips": [
+      "Be honest about what went wrong and why.",
+      "The audience wants to learn from your mistake, not judge you.",
+      "End with the lesson. What do you do differently now?",
+      "These are usually the most memorable talks. Lean into the drama."
+    ],
+    "difficulty": "beginner",
+    "prep_needed": "minimal",
+    "duration_min": 5
+  },
+  {
+    "id": "before-after",
+    "type": "before-after",
+    "title": "The Before/After",
+    "description": "Compare how you did something before AI tools and how you do it now. Could be a specific task, a project, or your entire development process.",
+    "prompt_template": "I was [emotion] when Claude Code [thing that happened]. Here's what [task] looked like before, and what it looks like now...",
+    "tips": [
+      "Be specific. 'I used to spend 3 hours on X, now it takes 20 minutes' beats 'AI made me faster.'",
+      "Show both sides honestly. What got better AND what got worse or stayed the same.",
+      "Numbers help. Time saved, lines of code, bugs caught, projects shipped."
+    ],
+    "difficulty": "beginner",
+    "prep_needed": "minimal",
+    "duration_min": 5
+  },
+  {
+    "id": "tool-review",
+    "type": "tool-review",
+    "title": "The Tool Review",
+    "description": "You tried a tool, framework, MCP server, or workflow for a real project. Tell us what worked, what didn't, and whether you'd recommend it.",
+    "prompt_template": "I was [emotion] when Claude Code [thing that happened]. I've been using [tool] for [duration] and here's my honest take...",
+    "tips": [
+      "Real usage only. Don't review something you tried for 10 minutes.",
+      "Compare it to what you used before. What made you switch?",
+      "Give a clear verdict: would you recommend it, and for what kind of builder?"
+    ],
+    "difficulty": "intermediate",
+    "prep_needed": "moderate",
+    "duration_min": 5
+  },
+  {
+    "id": "live-build",
+    "type": "live-build",
+    "title": "The Live Build",
+    "description": "Build something from scratch in 5 minutes using AI tools. High risk, high reward. The audience watches you prompt, iterate, and ship in real time.",
+    "prompt_template": "I was [emotion] when Claude Code [thing that happened]. Watch me build [thing] live right now...",
+    "tips": [
+      "Pick something small and achievable in 5 minutes. A CLI tool, a component, a script.",
+      "Narrate what you're doing and why. Don't just type in silence.",
+      "If it breaks, that's content. Talk through the debugging.",
+      "Have a pre-built version as backup so you can show the end result either way."
+    ],
+    "difficulty": "advanced",
+    "prep_needed": "heavy",
+    "duration_min": 5
+  },
+  {
+    "id": "setup-tour",
+    "type": "setup-tour",
+    "title": "The Setup Tour",
+    "description": "Walk us through your AI development environment. CLAUDE.md, MCP servers, hooks, skills, editor config. The full harness.",
+    "prompt_template": "I was [emotion] when Claude Code [thing that happened]. Let me show you how I've set up my environment...",
+    "tips": [
+      "Focus on the WHY behind your choices, not just the WHAT.",
+      "Pick 2-3 most impactful parts of your setup, don't try to cover everything.",
+      "Share what you'd change if starting over."
+    ],
+    "difficulty": "intermediate",
+    "prep_needed": "minimal",
+    "duration_min": 5
+  },
+  {
+    "id": "discovery",
+    "type": "discovery",
+    "title": "The Discovery",
+    "description": "Share something you just learned. A technique, a prompt pattern, a hidden feature, a tweet thread that changed how you work. Fresh and timely.",
+    "prompt_template": "I was [emotion] when Claude Code [thing that happened]. I just discovered [thing] and it changed everything...",
+    "tips": [
+      "Recency matters. This should be something from the last week or two.",
+      "Link to the source if it came from Twitter/blog/video.",
+      "Show a quick before/after of how you applied it."
+    ],
+    "difficulty": "beginner",
+    "prep_needed": "minimal",
+    "duration_min": 5
+  },
+  {
+    "id": "challenge-accepted",
+    "type": "challenge-accepted",
+    "title": "Challenge Accepted",
+    "description": "The audience gives you a challenge. Build it, fix it, or explain it in 5 minutes. Pure improvisation with AI tools.",
+    "prompt_template": "The audience challenged me to [challenge]. Let's see what happens...",
+    "tips": [
+      "This is for experienced speakers comfortable with uncertainty.",
+      "Narrate your thinking process out loud.",
+      "It's okay to fail. The audience is rooting for you.",
+      "Have the host pre-screen challenges to keep them achievable."
+    ],
+    "difficulty": "advanced",
+    "prep_needed": "none",
+    "duration_min": 5
+  }
+]
