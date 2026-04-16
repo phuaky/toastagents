@@ -30,7 +30,7 @@ How to run a ToastAgents event end-to-end.
 ## Running the Event
 
 ### Opening (5 min)
-1. Host welcomes everyone. Quick intro: "This is ToastAgents. We're here to practice talking about the things we build with AI."
+1. Host welcomes everyone. Quick intro: "This is ToastAgents. Power users exchanging what they know."
 2. Run the opening format (Term of the Day, Quote, Poll, or Theme Setter)
 3. Introduce the agent roles briefly: "Our Timer, Feedback, Ah Counter, and Recap are all run by Claude tonight."
 
@@ -63,19 +63,20 @@ How to run a ToastAgents event end-to-end.
 ## Troubleshooting
 
 **"Nobody wants to speak"**
-- Start with table topics first to warm people up. Speakers often volunteer after seeing others go.
-- DM people individually. "I saw your tweet about X. Would you do 5 minutes on it?" works way better than a general call for speakers.
+- You invited the wrong people. Power users have things to say. DM people with real workflows.
+- If nobody in the room can fill 5 minutes on their AI setup, the room isn't ready for ToastAgents.
 
 **"The demo broke"**
-- This happens. The speaker should just describe what would have happened. The Feedback Agent should note this positively if the speaker handled it well.
+- Speaker should just talk through what would have happened. If they can't describe their workflow without a screen, they didn't know it well enough.
 
 **"The agents aren't working"**
-- Have a human backup for Timer (phone stopwatch) and Hot Seat (printed question cards).
-- The event works without agents. They enhance it, they don't make it.
+- Phone stopwatch for Timer. Printed question cards for Hot Seat. The event works without agents.
 
 **"Only 5 people showed up"**
-- That's fine. Skip the full format. Do table topics only with everyone participating. It'll be more intimate and often better than a big event.
+- 5 power users in a room is better than 30 normies. Run table topics with everyone. Some of the best sessions are small.
 
-**"Someone is being negative or pitching"**
-- The host redirects: "This is a builder space. Let's keep it to experiences and workflows."
-- The "Not for" section in the README is your shield.
+**"Someone is clearly out of their depth"**
+- The format handles this. Table Topics will expose it naturally. No need to gatekeep manually - the questions are the gate.
+
+**"Someone is pitching or recruiting"**
+- Shut it down immediately. "This is power users sharing workflows, not a sales floor."

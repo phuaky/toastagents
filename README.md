@@ -1,8 +1,8 @@
 # ToastAgents
 
-**Where builders learn to speak and speakers learn to build.**
+**Power users only. The format does the filtering.**
 
-A meetup format for AI-native developers who build fast but struggle to present, demo, and share what they know. Merges the structured speaking practice of Toastmasters with the raw builder energy of [Claude Code Anonymous](https://steipete.com/blog/2025/claude-code-anonymous/).
+A meetup format for AI power users who ship real things. Borrows structure from Toastmasters, energy from [Claude Code Anonymous](https://steipete.com/blog/2025/claude-code-anonymous/), and adds AI agents to run the room. No community building. No hand-holding. Just power users exchanging signal with other power users.
 
 ---
 
@@ -12,9 +12,9 @@ ToastAgents was created by [Kuan](https://x.com/phuakuanyu) in Singapore, April 
 
 The insight: Claude Code Anonymous nailed the vibe (builders talking candidly about AI workflows) but lacked structure. Toastmasters nails the structure (timed talks, feedback, roles) but doesn't speak to builders. Neither format alone solves the real problem.
 
-**The real problem:** Developers and builders are terrible presenters. They mumble through demos, lose the audience in terminal output, run over time, and avoid speaking entirely. The ones with the most interesting workflows are often the quietest. Meanwhile, the AI tooling space moves so fast that monthly blog posts can't keep up - people need live, rapid-fire knowledge exchange.
+**The real problem:** AI tooling moves so fast that blog posts and Twitter threads can't keep up. The people with the most interesting workflows don't write about them - they just build. There's no format for power users to exchange what they know with other power users, without the noise of beginners, vendor pitches, or community management overhead.
 
-ToastAgents fixes both: give builders a low-pressure format to practice speaking, and give the community a fast way to share discoveries.
+ToastAgents is an independent gathering. No organizer logistics. No community building. No welcoming newcomers. The format itself self-selects who speaks and who doesn't. If you can't answer a table topics question about your AI workflow off the cuff, you're not ready. That's the filter.
 
 ## The Name
 
@@ -25,12 +25,19 @@ ToastAgents fixes both: give builders a low-pressure format to practice speaking
 
 ## Who Is This For
 
-- Developers using Claude Code, Cursor, Copilot, or any AI-assisted workflow daily
-- Builders who have interesting setups, hacks, workflows, or horror stories but never share them
-- People who want to get better at presenting technical work without the pressure of a conference talk
-- Anyone curious about how others are actually using AI to build - not the Twitter hype, the real thing
+Power users. People who:
+- Have a non-trivial AI development setup they use daily (harnesses, MCP servers, custom workflows)
+- Have shipped real things with AI tools, not just experimented
+- Can talk about their workflow off the cuff without preparation
+- Want to hear what other power users are doing, not explain basics to beginners
 
-**Not for:** Pitching products. Recruiting. Vendor demos. Keep it builder-to-builder.
+**Not for:**
+- People who just installed Claude Code last week
+- "I'm curious about AI" attendees
+- Pitching products, recruiting, vendor demos
+- Community builders looking for a format to grow a Discord
+
+The format handles this naturally. Lightning talks require real experience. Table Topics questions expose whether you actually use these tools daily. You can't fake it for 60 seconds on the spot.
 
 ---
 
@@ -61,9 +68,9 @@ This is the Claude Code Anonymous DNA. Every talk starts with that sentence. It 
 
 ### 3. Table Topics / Hot Seat (15-20 min)
 
-This is the Toastmasters move that makes everything click.
+This is the self-selection mechanism.
 
-Random audience members get called up. They get a question. They speak for 60-120 seconds. No preparation.
+Audience members get called up. They get a question. They speak for 60-120 seconds. No preparation.
 
 Example questions:
 - "What's one thing you automated this week that you probably shouldn't have?"
@@ -71,7 +78,7 @@ Example questions:
 - "What's a workflow you saw on Twitter that actually worked?"
 - "What's the weirdest thing you've used an LLM for?"
 
-**Why this matters:** The quietest person in the room might have the most interesting setup. Table Topics surfaces them. It also trains the muscle of speaking off-the-cuff about technical work - a skill that pays off in meetings, interviews, and pitches.
+**Why this matters:** Table Topics is the format's natural filter. If you're a power user, you can answer these without thinking - you live this stuff daily. If you can't, the room knows. Nobody decides who's worthy. The format does it. The strongest and most mysterious person in the room gets surfaced here.
 
 ---
 
@@ -95,11 +102,11 @@ Humans just show up, talk, listen, and enjoy. The agents handle the facilitation
 
 ## How to Start a Chapter
 
-1. Find a venue. Co-working spaces, office common areas, bars with a quiet corner. You need a screen/TV and a laptop.
-2. Set a date. Monthly works. Bi-weekly if your community is hungry.
-3. Get 4-5 speakers. DM people. Look for the ones posting interesting AI workflows on Twitter/X. They usually want to talk but nobody's asked.
-4. Set up the agent roles on a laptop connected to the venue screen.
-5. Run the format. Opening, lightning talks, table topics. Keep it to an hour.
+1. Find a venue. Anywhere with a screen and WiFi. Don't overthink it.
+2. Set a date. Don't build a community around it. Just pick a date.
+3. Get 4-5 power users to speak. DM the people posting real AI workflows on X. They'll say yes.
+4. Laptop with agents connected to the venue screen. That's your entire production setup.
+5. Run the format. Opening, talks, hot seat. One hour. Done.
 6. No recording. No livestream. This keeps it candid.
 7. Add your chapter to this repo.
 
@@ -112,6 +119,24 @@ Humans just show up, talk, listen, and enjoy. The agents handle the facilitation
 | Singapore | [@phuakuanyu](https://x.com/phuakuanyu) | TBD | April 2026 |
 
 *Want to start a chapter? Open a PR or reach out.*
+
+---
+
+## What This Is NOT
+
+If you're coming from Toastmasters, recalibrate. This is not Toastmasters with an AI theme.
+
+| Toastmasters assumes | ToastAgents assumes |
+|----------------------|---------------------|
+| Everyone should get a chance to speak | Only power users speak. The format filters. |
+| The goal is to practice speaking | The goal is to exchange high-signal information |
+| You build a supportive community over time | It's an independent gathering. No community management. |
+| Organizers prep logistics, roles, evaluations | Agents handle roles. Organizers just pick a date and venue. |
+| Table Topics is for practicing impromptu speaking | Table Topics is the filter that reveals who's real |
+| New members are welcomed and mentored | New members either keep up or stay quiet |
+| Meetings have structured curricula and pathways | No curriculum. No progression. Just raw knowledge exchange. |
+
+The format borrows Toastmasters' timed structure and table topics mechanic because they work. Everything else - the community building, the mentorship, the welcoming newcomers, the logistics overhead - is deliberately absent.
 
 ---
 
