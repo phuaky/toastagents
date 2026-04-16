@@ -86,6 +86,7 @@ Traditional Toastmasters has human volunteers for Timer, Evaluator, Grammarian, 
 | **Timer Agent** | Tracks each speaker. Announces 1-min warning, time's up. Visual display on screen. |
 | **Feedback Agent** | After each lightning talk, generates a brief (30-second) spoken evaluation: what landed, what could improve, one specific suggestion. |
 | **Hot Seat Agent** | Picks random audience members for Table Topics. Generates questions based on the night's theme. |
+| **Ah Counter Agent** | Tracks filler words (um, ah, like, basically, you know). Reports at the end of the night. |
 | **Recap Agent** | At the end, summarizes the night's key moments and takeaways in 60 seconds. |
 
 Humans just show up, talk, listen, and enjoy. The agents handle the facilitation. It's a Claude meetup run by Claude.
@@ -168,6 +169,19 @@ events/YYYY-MM-DD-city/
 ```
 
 Templates in `templates/`. Copy them to start a new event folder.
+
+---
+
+## Knowledge Base
+
+The `knowledge/` folder contains reference material for agents and organizers:
+
+- `toastmasters-basics.md` - Core Toastmasters concepts adapted for ToastAgents
+- `claude-code-anonymous.md` - Origin and DNA of Claude Code Anonymous
+- `speaking-tips.md` - Practical speaking advice for developer audiences
+- `facilitation-guide.md` - How to run a ToastAgents event end-to-end
+
+Agents should read relevant files before each event for context.
 
 ---
 
