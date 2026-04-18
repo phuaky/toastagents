@@ -2,6 +2,8 @@
 
 **Power users only. The format does the filtering.**
 
+Site: **[toastagents.kuanyu.dev](https://toastagents.kuanyu.dev)** ([source](web/index.html))
+
 A meetup format for AI power users who ship real things. Borrows structure from Toastmasters, energy from [Claude Code Anonymous](https://steipete.com/blog/2025/claude-code-anonymous/), and adds AI agents to run the room. No community building. No hand-holding. Just power users exchanging signal with other power users.
 
 ---
@@ -114,9 +116,9 @@ Humans just show up, talk, listen, and enjoy. The agents handle the facilitation
 
 ## Chapters
 
-| City | Organizer | Cadence | Started |
-|------|-----------|---------|---------|
-| Singapore | [@phuakuanyu](https://x.com/phuakuanyu) | TBD | April 2026 |
+| City | Organizer | Cadence | Started | Website |
+|------|-----------|---------|---------|---------|
+| Singapore | [@phuakuanyu](https://x.com/phuakuanyu) | TBD | April 2026 | [toastagents.kuanyu.dev](https://toastagents.kuanyu.dev) |
 
 *Want to start a chapter? Open a PR or reach out.*
 

@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ToastAgents — Power users only. The format does the filtering.</title>
+<meta name="description" content="A meetup format for AI power users who ship real things. Toastmasters structure, Claude Code Anonymous candor, agents running the room.">
+<meta name="color-scheme" content="dark">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ToastAgents">
+<meta property="og:description" content="Power users only. The format does the filtering.">
+<meta property="og:url" content="https://github.com/phuakuanyu/toastagents">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ToastAgents">
+<meta name="twitter:description" content="Power users only. The format does the filtering.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0a0a0a;
+  --surface:#141414;
+  --border:#262626;
+  --border-strong:#3a3a3a;
+  --fg:#e8e6e1;
+  --fg-dim:#8a8780;
+  --accent:#ff7a1a;
+  --accent-soft:#ffd9b3;
+  --mono:'JetBrains Mono', ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  --maxw:980px;
+  --pad: clamp(1.25rem, 4vw, 2rem);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--mono);
+  font-size:clamp(0.95rem, 1.1vw + 0.5rem, 1.0625rem);
+  line-height:1.6;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-wrap:break-word;
+  word-wrap:break-word;
+}
+
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s ease}
+a:hover{border-bottom-color:var(--accent)}
+
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:1px}
+
+::selection{background:var(--accent);color:#000}
+
+.container{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+.section{
+  border-top:1px solid var(--border);
+  padding-block:clamp(2.5rem,6vw,4.5rem);
+}
+.section:first-of-type{border-top:none}
+.section-label{
+  font-size:.75rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--fg-dim);
+  margin:0 0 1.25rem;
+  font-weight:500;
+}
+h1,h2,h3{font-family:var(--mono);font-weight:700;letter-spacing:-.01em;line-height:1.15;margin:0}
+h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:1.5rem}
+h3{font-size:1.0625rem;margin-bottom:.5rem}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+.dim{color:var(--fg-dim)}
+.accent{color:var(--accent)}
+.lede{max-width:62ch;color:var(--fg-dim);margin:0 0 1.75rem}
+
+/* HEADER */
+header.site{
+  position:sticky;top:0;z-index:5;
+  background:rgba(10,10,10,.85);
+  backdrop-filter:saturate(140%) blur(8px);
+  -webkit-backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--border);
+}
+header.site .container{padding-block:.875rem}
+.brand{display:inline-flex;align-items:baseline;gap:.5rem;font-weight:700;color:var(--fg);letter-spacing:-.02em;font-size:1rem}
+.brand .blink{display:inline-block;width:.55em;height:1em;background:var(--accent);transform:translateY(.12em);animation:blink 1.1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+@media (prefers-reduced-motion:reduce){.brand .blink{animation:none}}
+.nav-links{display:flex;gap:1.25rem;font-size:.875rem;color:var(--fg-dim)}
+.nav-links a{color:var(--fg-dim)}
+.nav-links a:hover{color:var(--fg);border-bottom-color:var(--fg)}
+@media (max-width:520px){.nav-links{display:none}}
+
+/* HERO */
+.hero{padding-block:clamp(3rem,9vw,6rem) clamp(2.5rem,7vw,5rem)}
+.eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 1rem;font-weight:500}
+h1.hero-title{
+  font-size:clamp(2.5rem,8.5vw,5.5rem);
+  font-weight:700;
+  letter-spacing:-.035em;
+  line-height:.96;
+  margin:0 0 1.5rem;
+}
+.tagline{
+  font-size:clamp(1.125rem,2vw,1.375rem);
+  color:var(--fg);
+  max-width:36ch;
+  margin:0 0 1.75rem;
+  line-height:1.35;
+}
+.tagline .accent-bar{
+  display:inline-block;
+  width:1.5em;
+  border-top:2px solid var(--accent);
+  vertical-align:middle;
+  margin-right:.4em;
+}
+.pitch{max-width:62ch;color:var(--fg-dim);margin:0 0 2rem}
+.pitch strong{color:var(--fg);font-weight:500}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.5em;
+  padding:.75rem 1.1rem;
+  border:1px solid var(--border-strong);
+  background:transparent;color:var(--fg);
+  font:inherit;font-size:.9375rem;
+  cursor:pointer;
+  transition:background .15s, border-color .15s, color .15s;
+}
+.btn:hover{border-color:var(--fg);background:var(--surface)}
+.btn.primary{background:var(--accent);color:#0a0a0a;border-color:var(--accent);font-weight:500}
+.btn.primary:hover{background:var(--accent-soft);border-color:var(--accent-soft);color:#000}
+.btn .arrow{transition:transform .15s}
+.btn:hover .arrow{transform:translateX(2px)}
+
+.terminal{
+  margin-top:2.25rem;
+  background:var(--surface);
+  border:1px solid var(--border);
+  font-size:.875rem;
+  max-width:min(42rem, 100%);
+  white-space:pre-wrap;
+  overflow-wrap:break-word;
+  word-break:break-word;
+  overflow-x:auto;
+}
+.terminal-bar{
+  display:flex;align-items:center;gap:.5rem;
+  padding:.5rem .75rem;
+  border-bottom:1px solid var(--border);
+  color:var(--fg-dim);
+  font-size:.75rem;letter-spacing:.05em;
+}
+.terminal-bar .dot{width:.55rem;height:.55rem;border-radius:50%;background:var(--border-strong)}
+.terminal-body{padding:.875rem 1rem;line-height:1.6;color:var(--fg-dim)}
+.terminal-body .prompt{color:var(--accent);margin-right:.5em}
+.terminal-body .out{color:var(--fg)}
+
+/* WHO IT'S FOR */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.split > div{background:var(--bg);padding:clamp(1.25rem,3vw,1.75rem)}
+.split h3{margin-top:0;color:var(--fg);font-size:1rem}
+.split .for h3::before{content:"+ ";color:var(--accent);font-weight:700}
+.split .not h3::before{content:"− ";color:var(--fg-dim);font-weight:700}
+.split ul{margin:.5rem 0 0;padding-left:1.1rem;color:var(--fg-dim)}
+.split ul li{margin-bottom:.4rem}
+.split ul li::marker{color:var(--border-strong)}
+@media (max-width:640px){.split{grid-template-columns:1fr}}
+
+/* FORMAT */
+.format-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border)}
+.format-row{
+  display:grid;grid-template-columns:auto 9rem 1fr;
+  background:var(--bg);
+  padding:1rem clamp(1rem,2vw,1.25rem);
+  align-items:baseline;
+  gap:1rem;
+}
+.format-row .num{color:var(--accent);font-weight:700;font-size:1.5rem;line-height:1}
+.format-row .time{color:var(--fg);font-weight:500;font-size:.9375rem}
+.format-row .name{color:var(--fg);font-weight:500;font-size:1rem;margin-bottom:.4rem}
+.format-row .desc{color:var(--fg-dim);font-size:.9375rem;line-height:1.5}
+.format-row .desc code{background:var(--surface);padding:.15em .4em;border:1px solid var(--border);font-size:.85em;color:var(--accent-soft)}
+@media (max-width:640px){
+  .format-row{grid-template-columns:auto 1fr;gap:.5rem 1rem}
+  .format-row .time{grid-column:2;font-size:.8125rem;color:var(--fg-dim)}
+  .format-row .meta{grid-column:1 / -1;margin-top:.25rem}
+}
+
+/* AGENTS */
+.agents{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+.agent{background:var(--bg);padding:1.25rem 1.25rem 1.5rem;display:flex;flex-direction:column}
+.agent .icon{
+  font-family:var(--mono);
+  color:var(--accent);
+  font-size:.75rem;
+  letter-spacing:.18em;
+  margin-bottom:.5rem;
+}
+.agent h3{font-size:1.0625rem;margin-bottom:.5rem}
+.agent p{color:var(--fg-dim);font-size:.9375rem;margin:0;line-height:1.5}
+
+/* COMPARISON */
+.compare{
+  width:100%;
+  border-collapse:collapse;
+  border:1px solid var(--border);
+  font-size:.9375rem;
+}
+.compare th,.compare td{
+  padding:.875rem 1rem;
+  text-align:left;
+  vertical-align:top;
+  border-bottom:1px solid var(--border);
+  border-right:1px solid var(--border);
+}
+.compare th:last-child,.compare td:last-child{border-right:none}
+.compare tr:last-child td{border-bottom:none}
+.compare th{
+  background:var(--surface);
+  font-weight:500;
+  color:var(--fg);
+  font-size:.75rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.compare td.tm{color:var(--fg-dim)}
+.compare td.ta{color:var(--fg)}
+.compare td.ta::before{content:"→ ";color:var(--accent);font-weight:700}
+@media (max-width:640px){
+  .compare,.compare tbody,.compare tr{display:block}
+  .compare thead{display:none}
+  .compare tr{margin-bottom:.75rem;border:1px solid var(--border)}
+  .compare td{display:block;border-right:none;border-bottom:1px solid var(--border)}
+  .compare td:last-child{border-bottom:none}
+  .compare td::before{content:attr(data-label) ":  ";color:var(--fg-dim);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.25rem}
+  .compare td.ta::before{content:attr(data-label) ":  ";color:var(--accent)}
+}
+
+/* TOPICS SHUFFLER */
+.topic-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:clamp(1.5rem,3vw,2.25rem);
+  display:grid;
+  gap:1rem;
+  min-height:11rem;
+}
+.topic-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--fg-dim);
+  flex-wrap:wrap;gap:.5rem;
+}
+.topic-meta .cat{color:var(--accent)}
+.topic-q{
+  font-size:clamp(1.125rem,2.2vw,1.5rem);
+  color:var(--fg);
+  line-height:1.35;
+  font-weight:500;
+  margin:0;
+}
+.topic-actions{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.topic-actions .timer{font-size:.875rem;color:var(--fg-dim)}
+.topic-actions .timer .accent{color:var(--accent);font-weight:700}
+
+/* CHAPTERS */
+.chapters{
+  width:100%;border-collapse:collapse;border:1px solid var(--border);
+  font-size:.9375rem;
+}
+.chapters th,.chapters td{padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--border)}
+.chapters tr:last-child td{border-bottom:none}
+.chapters th{background:var(--surface);font-weight:500;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-dim)}
+.chapters .tag{
+  display:inline-block;background:var(--surface);border:1px solid var(--border);
+  padding:.1rem .5rem;font-size:.75rem;color:var(--fg-dim);letter-spacing:.05em;
+}
+@media (max-width:520px){
+  .chapters th:nth-child(3),.chapters td:nth-child(3){display:none}
+}
+
+/* START LIST */
+.steps{counter-reset:step;list-style:none;padding:0;margin:0;display:grid;gap:.75rem}
+.steps li{
+  counter-increment:step;
+  display:grid;grid-template-columns:auto 1fr;gap:1rem;
+  padding:.75rem 1rem;
+  border:1px solid var(--border);
+  background:var(--bg);
+  align-items:baseline;
+}
+.steps li::before{
+  content:counter(step,decimal-leading-zero);
+  color:var(--accent);font-weight:700;font-size:.875rem;
+  letter-spacing:.05em;
+}
+
+/* FOOTER */
+footer.site{border-top:1px solid var(--border);padding-block:2rem;color:var(--fg-dim);font-size:.875rem}
+footer.site .row{align-items:flex-start}
+footer.site a{color:var(--fg-dim)}
+footer.site a:hover{color:var(--fg);border-bottom-color:var(--fg)}
+.footer-meta{display:flex;flex-direction:column;gap:.25rem;text-align:right}
+@media (max-width:520px){
+  footer.site .row{flex-direction:column;gap:1rem}
+  .footer-meta{text-align:left}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important;transition-duration:.001s !important;scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container row">
+    <a href="#" class="brand" aria-label="ToastAgents home">ToastAgents<span class="blink" aria-hidden="true"></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#format">Format</a>
+      <a href="#agents">Agents</a>
+      <a href="#topics">Topics</a>
+      <a href="#chapters">Chapters</a>
+      <a href="https://github.com/phuakuanyu/toastagents" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="section hero">
+  <div class="container">
+    <p class="eyebrow">A meetup format for AI power users</p>
+    <h1 class="hero-title">Toast<span class="accent">Agents</span>.</h1>
+    <p class="tagline"><span class="accent-bar" aria-hidden="true"></span>Power users only. The format does the filtering.</p>
+    <p class="pitch">
+      Toastmasters structure. <strong>Claude Code Anonymous</strong> candor.
+      Five agents run the room while builders trade workflows for sixty minutes.
+      No community management. No hand-holding. No vendor pitches.
+    </p>
+    <div class="cta-row">
+      <a class="btn primary" href="https://github.com/phuakuanyu/toastagents" target="_blank" rel="noopener">
+        Read the spec on GitHub <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="btn" href="#format">See the format</a>
+    </div>
+
+    <pre class="terminal" aria-hidden="true"><div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:auto">~/toastagents</span></div><div class="terminal-body"><span class="prompt">$</span><span class="out"> bun run agenda --theme "Workflows that saved you hours"</span>
+<span class="out">→ opening: term-of-the-day</span>
+<span class="out">→ talks: 4 × 5 min  (slots open)</span>
+<span class="out">→ table topics: 6 questions, mixed difficulty</span>
+<span class="out">→ recap agent: standby</span>
+<span class="prompt">$</span> <span style="color:var(--accent)">_</span></div></pre>
+  </div>
+</section>
+
+<section class="section" id="who">
+  <div class="container">
+    <p class="section-label">Who</p>
+    <h2>The format self-selects.</h2>
+    <p class="lede">
+      Lightning talks require real experience. Table Topics expose whether you actually use these tools daily.
+      You can't fake sixty seconds on the spot.
+    </p>
+    <div class="split">
+      <div class="for">
+        <h3>For people who&hellip;</h3>
+        <ul>
+          <li>Run a non-trivial AI dev setup daily (harnesses, MCP servers, custom hooks)</li>
+          <li>Have shipped real things with AI tools, not just experimented</li>
+          <li>Can talk about their workflow off the cuff without preparation</li>
+          <li>Want to hear what other power users are doing, not explain basics to beginners</li>
+        </ul>
+      </div>
+      <div class="not">
+        <h3>Not for&hellip;</h3>
+        <ul>
+          <li>People who installed Claude Code last week</li>
+          <li>"I'm curious about AI" attendees</li>
+          <li>Pitching products, recruiting, vendor demos</li>
+          <li>Community builders looking for a Discord-growth format</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="format">
+  <div class="container">
+    <p class="section-label">Format</p>
+    <h2>Sixty minutes. Three blocks.</h2>
+    <p class="lede">
+      Social time after is optional and organic. The structured part ends on time, every time.
+    </p>
+    <div class="format-grid">
+      <div class="format-row">
+        <span class="num">01</span>
+        <span class="time">5 min</span>
+        <div class="meta">
+          <div class="name">Opening</div>
+          <div class="desc">Host sets the night's theme. <em>"Workflows that saved you hours."</em> <em>"The worst thing Claude ever did to your codebase."</em> The theme gives speakers a frame and the audience something to listen for.</div>
+        </div>
+      </div>
+      <div class="format-row">
+        <span class="num">02</span>
+        <span class="time">30–40 min</span>
+        <div class="meta">
+          <div class="name">Lightning Talks</div>
+          <div class="desc">Four to five speakers. Five minutes each. Every talk opens with the same sentence: <code>"I was [emotion] when Claude Code [thing that happened]…"</code> Demos are optional. The story is what matters.</div>
+        </div>
+      </div>
+      <div class="format-row">
+        <span class="num">03</span>
+        <span class="time">15–20 min</span>
+        <div class="meta">
+          <div class="name">Table Topics / Hot Seat</div>
+          <div class="desc">Audience members get called up at random. Sixty to one hundred twenty seconds to answer. No preparation. This is the filter. The strongest, most mysterious person in the room gets surfaced here.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="agents">
+  <div class="container">
+    <p class="section-label">Agent Roles</p>
+    <h2>A Claude meetup run by Claude.</h2>
+    <p class="lede">
+      Toastmasters has human volunteers for Timer, Evaluator, Grammarian. ToastAgents replaces them with live agents on a laptop wired to the venue screen. Humans show up, talk, listen.
+    </p>
+    <div class="agents">
+      <article class="agent">
+        <span class="icon">[ T01 ]</span>
+        <h3>Timer Agent</h3>
+        <p>Tracks each speaker. Announces the one-minute warning and time's up. Visual countdown on the room display.</p>
+      </article>
+      <article class="agent">
+        <span class="icon">[ T02 ]</span>
+        <h3>Feedback Agent</h3>
+        <p>After each lightning talk, generates a thirty-second spoken evaluation. What landed, what could improve, one specific suggestion.</p>
+      </article>
+      <article class="agent">
+        <span class="icon">[ T03 ]</span>
+        <h3>Hot Seat Agent</h3>
+        <p>Picks audience members at random for Table Topics. Generates questions based on the night's theme.</p>
+      </article>
+      <article class="agent">
+        <span class="icon">[ T04 ]</span>
+        <h3>Ah Counter Agent</h3>
+        <p>Tracks filler words: <em>um, ah, like, basically, you know</em>. Reports the count at the end of the night.</p>
+      </article>
+      <article class="agent">
+        <span class="icon">[ T05 ]</span>
+        <h3>Recap Agent</h3>
+        <p>Summarizes the night's key moments and takeaways in sixty seconds. The closing word.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="versus">
+  <div class="container">
+    <p class="section-label">Recalibration</p>
+    <h2>What this is not.</h2>
+    <p class="lede">
+      If you're coming from Toastmasters, recalibrate. The structure is borrowed. The rest is deliberately absent.
+    </p>
+    <table class="compare">
+      <thead>
+        <tr><th>Toastmasters assumes</th><th>ToastAgents assumes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tm" data-label="Toastmasters">Everyone should get a chance to speak.</td>
+          <td class="ta" data-label="ToastAgents">Only power users speak. The format filters.</td>
+        </tr>
+        <tr>
+          <td class="tm" data-label="Toastmasters">The goal is to practice speaking.</td>
+          <td class="ta" data-label="ToastAgents">The goal is to exchange high-signal information.</td>
+        </tr>
+        <tr>
+          <td class="tm" data-label="Toastmasters">You build a supportive community over time.</td>
+          <td class="ta" data-label="ToastAgents">An independent gathering. No community management.</td>
+        </tr>
+        <tr>
+          <td class="tm" data-label="Toastmasters">Organizers prep logistics, roles, evaluations.</td>
+          <td class="ta" data-label="ToastAgents">Agents handle roles. Organizers pick a date and venue.</td>
+        </tr>
+        <tr>
+          <td class="tm" data-label="Toastmasters">Table Topics is for practicing impromptu speaking.</td>
+          <td class="ta" data-label="ToastAgents">Table Topics is the filter that reveals who's real.</td>
+        </tr>
+        <tr>
+          <td class="tm" data-label="Toastmasters">New members are welcomed and mentored.</td>
+          <td class="ta" data-label="ToastAgents">New members either keep up or stay quiet.</td>
+        </tr>
+        <tr>
+          <td class="tm" data-label="Toastmasters">Meetings have structured curricula and pathways.</td>
+          <td class="ta" data-label="ToastAgents">No curriculum. No progression. Raw knowledge exchange.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="topics">
+  <div class="container">
+    <p class="section-label">Sample Table Topic</p>
+    <h2>You have sixty seconds. Go.</h2>
+    <p class="lede">
+      Real questions from <code>database/table-topics.json</code> (102 in the repo). Click for another.
+    </p>
+
+    <div class="topic-card" id="topicCard" aria-live="polite">
+      <div class="topic-meta">
+        <span class="cat" id="topicCat">workflows</span>
+        <span id="topicId">#001 · easy</span>
+      </div>
+      <p class="topic-q" id="topicQ">Describe your Claude Code setup in sixty seconds.</p>
+      <div class="topic-actions">
+        <span class="timer">
+          <span class="accent" id="topicTime">90</span> seconds on the clock
+        </span>
+        <button class="btn" id="shuffleBtn" type="button" aria-controls="topicCard">
+          Next topic <span class="arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="start">
+  <div class="container">
+    <p class="section-label">How to start</p>
+    <h2>Pick a date. Find a screen. Run it.</h2>
+    <p class="lede">
+      No organizer logistics. No community building. Don't overthink it.
+    </p>
+    <ol class="steps">
+      <li><span>Find a venue. Anywhere with a screen and WiFi.</span></li>
+      <li><span>Pick a date. Don't build a community around it. Just pick a date.</span></li>
+      <li><span>Get four or five power users to speak. DM the people posting real AI workflows.</span></li>
+      <li><span>One laptop running the agents, wired to the venue screen. That's your production setup.</span></li>
+      <li><span>Run the format: opening, talks, hot seat. One hour. Done.</span></li>
+      <li><span>No recording. No livestream. Keeps it candid.</span></li>
+      <li><span>Add your chapter to the repo.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="chapters">
+  <div class="container">
+    <p class="section-label">Chapters</p>
+    <h2>Where it runs.</h2>
+    <p class="lede">
+      Want to start one? Open a PR or reach out.
+    </p>
+    <table class="chapters">
+      <thead>
+        <tr><th>City</th><th>Organizer</th><th>Started</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Singapore <span class="tag">SG</span></td>
+          <td><a href="https://x.com/phuakuanyu" target="_blank" rel="noopener">@phuakuanyu</a></td>
+          <td class="dim">April 2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="container row">
+    <div>
+      <div><strong style="color:var(--fg);font-weight:500">ToastAgents</strong></div>
+      <div>An independent gathering. No community management.</div>
+    </div>
+    <div class="footer-meta">
+      <div><a href="https://github.com/phuakuanyu/toastagents" target="_blank" rel="noopener">github.com/phuakuanyu/toastagents</a></div>
+      <div>Created by <a href="https://x.com/phuakuanyu" target="_blank" rel="noopener">Kuan</a> · Singapore · 2026</div>
+      <div>MIT License</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const TOPICS = [
+    {id:1, cat:"workflows",         q:"Describe your Claude Code setup in sixty seconds.",                                              t:90, d:"easy"},
+    {id:2, cat:"workflows",         q:"What's one thing you automated this week that you probably shouldn't have?",                    t:90, d:"easy"},
+    {id:7, cat:"workflows",         q:"What's your most-used prompt pattern?",                                                          t:90, d:"medium"},
+    {id:12,cat:"workflows",         q:"How many MCP servers are you running? Pick one and explain why it exists.",                     t:90, d:"medium"},
+    {id:14,cat:"wins-and-failures", q:"What's the worst thing an AI agent ever did to your codebase?",                                 t:90, d:"easy"},
+    {id:20,cat:"wins-and-failures", q:"What's the fastest you've ever shipped something? What tools made it possible?",                t:90, d:"easy"},
+    {id:24,cat:"wins-and-failures", q:"What's the most money you've wasted on API calls?",                                              t:60, d:"easy"},
+    {id:26,cat:"hot-takes",         q:"Is vibe coding real engineering? You have sixty seconds.",                                       t:60, d:"easy"},
+    {id:29,cat:"hot-takes",         q:"What's one thing Claude Code is terrible at?",                                                   t:60, d:"easy"},
+    {id:39,cat:"show-and-tell",     q:"What's the weirdest thing you've used an LLM for?",                                              t:60, d:"easy"},
+    {id:40,cat:"show-and-tell",     q:"Show us one file on your machine that proves you're an AI power user.",                          t:90, d:"medium"},
+    {id:43,cat:"show-and-tell",     q:"Open your terminal history. What's the last AI-related command you ran?",                        t:60, d:"easy"}
+  ];
+
+  const card = document.getElementById('topicCard');
+  const catEl = document.getElementById('topicCat');
+  const idEl  = document.getElementById('topicId');
+  const qEl   = document.getElementById('topicQ');
+  const tEl   = document.getElementById('topicTime');
+  const btn   = document.getElementById('shuffleBtn');
+  if (!card || !btn) return;
+
+  let lastIdx = 0;
+  function pad(n){ return String(n).padStart(3,'0'); }
+  function pick(){
+    if (TOPICS.length < 2) return TOPICS[0];
+    let i = lastIdx;
+    while (i === lastIdx) i = Math.floor(Math.random() * TOPICS.length);
+    lastIdx = i;
+    return TOPICS[i];
+  }
+  function render(t){
+    catEl.textContent = t.cat;
+    idEl.textContent  = '#' + pad(t.id) + ' · ' + t.d;
+    qEl.textContent   = t.q;
+    tEl.textContent   = t.t;
+  }
+  btn.addEventListener('click', function(){
+    render(pick());
+    card.animate(
+      [{opacity:.4},{opacity:1}],
+      {duration:180, easing:'ease-out'}
+    );
+  });
+})();
+</script>
+
+</body>
+</html>
